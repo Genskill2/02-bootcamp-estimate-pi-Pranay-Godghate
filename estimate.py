@@ -5,7 +5,7 @@ import random
 def wallis(n): #declaring wallis function
     pi=1
     for i in range(1,n): #loop which works n times
-        pi*=(4*n*n)/(4*n*n-1) #wallis formula 
+        pi*=(4*i*i)/(4*i*i-1) #wallis formula 
     return (2*pi)
 def monte_carlo(n):
     c=0
