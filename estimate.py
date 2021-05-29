@@ -1,5 +1,23 @@
 import math
 import unittest
+import random  
+
+def wallis(n): #declaring wallis function
+    pi=1
+    for i in range(1,n): #loop which works n times
+        pi*=(4*n*n)/(4*n*n-1) #wallis formula 
+    return (2*pi)
+def monte_carlo(n):
+    c=0
+    for i in range(1,n): 
+        x=random.random() #this will generate a random value between [0,1)
+        y=random.random() #this will generate a random value between [0,1)
+        dist=math.sqrt(math.pow(x,2)+math.pow(y,2)) #gives distance between point(0,0) and (x,Y)
+        if dist<1:
+            c=c+1 #to count number of darts in circle
+    pi=(4*c)/n
+    return pi
+    
 
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
@@ -30,3 +48,4 @@ class TestMC(unittest.TestCase):
     
 if __name__ == "__main__":
     unittest.main()
+
